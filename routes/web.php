@@ -24,3 +24,29 @@ Route::get('/news', function () {
 Route::get('/hello/{name}', function ($name) {
     return "welcome $name";
 });
+
+//Следующие маршруты
+
+Route::get('/welcome', function () {
+    return view('info');
+});
+
+Route::get('/categories', function () {
+    return view('info');
+});
+
+Route::get('/news/{categories}', function () {
+    return view('info');
+});
+
+Route::get('/news/{id}', function () {
+    return view('info');
+});
+
+Route::get('/auth', function () {
+    return view('info');
+});
+
+Route::get('/cabinet', function () {
+    return view('info');
+});
