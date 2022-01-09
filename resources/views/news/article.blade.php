@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('news.layouts.app')
 
 @section('title')
     @parent Новость

@@ -11,7 +11,7 @@ class NewsController extends Controller
         $news = $this->getNews();
         $category = $this->getCategory();
 
-        return view('news', ['news' => $news, 'category' => $category]);
+        return view('news.index', ['news' => $news, 'category' => $category]);
     }
 
     public function show(int $idNews)
@@ -19,7 +19,7 @@ class NewsController extends Controller
         $article = $this->getArticle();
         $category = $this->getCategory();
 
-        return view('article', ['article' => $article, 'category' => $category]);
+        return view('news.article', ['article' => $article, 'category' => $category]);
     }
 
 }
