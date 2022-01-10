@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +19,13 @@ Route::get('/', function () {
     return view('info');
 });
 
-Route::get('/news', function () {
-    return view('news');
-});
+Route::get('/news', [NewsController::class, 'index']);
+Route::get('/news/{id}', [NewsController::class, 'show']);
 
-Route::get('/hello/{name}', function ($name) {
-    return "welcome $name";
-});
+
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/{id}', [CategoryController::class, 'show']);
+
+
+
+
