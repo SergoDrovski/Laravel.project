@@ -7,41 +7,20 @@
 @section('topic')
     @parent
     <div class="row ml-0 mr-0">
-        <div class="col-md-3 pr-0 first">
-            <div class="card">
-                <img class="card-img" src="/assets/images/architecture.png" alt="">
-                <div class="card-img-overlay">
-                    <h5>Архитектура</h5>
-                </div>
+        @forelse ($category as $item)
+            <div class="col-md-3 pr-0 first">
+                <a href="/categories/{{ $item['id'] }}">
+                    <div class="card">
+                        <img width="440" height="293" class="card-img" src="/assets/images/categories/{{ $item['id'] }}.jpg" alt="">
+                        <div class="card-img-overlay">
+                            <h5>{{ $item['category'] }}</h5>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </div>
-
-        <div class="col-md-3 pl-0 pr-0">
-            <div class="card">
-                <img class="card-img" src="/assets/images/interior.png" alt="">
-                <div class="card-img-overlay">
-                    <h5>Интерьер</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 pl-0 pr-0">
-            <div class="card">
-                <img class="card-img" src="/assets/images/food.png" alt="">
-                <div class="card-img-overlay">
-                    <h5>Еда</h5>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 pl-0 last">
-            <div class="card">
-                <img class="card-img" src="/assets/images/travel.png" alt="">
-                <div class="card-img-overlay">
-                    <h5>Путешествия</h5>
-                </div>
-            </div>
-        </div>
+        @empty
+            <p>Нет категорий</p>
+        @endforelse
     </div>
 @endsection
 
@@ -79,6 +58,6 @@
 @endsection
 
 @push('scripts')
-    <script src="/assets/js/main.js"></script>
+    <script src="{{asset('/assets/js/main.js')}}"></script>
 @endpush
 

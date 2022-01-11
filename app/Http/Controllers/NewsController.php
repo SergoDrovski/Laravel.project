@@ -10,8 +10,10 @@ class NewsController extends Controller
     {
         $news = $this->getNews();
         $category = $this->getCategory();
+        $chunkCategories = collect($category)->chunk(4);
+        $bestCategories = $chunkCategories[0];
+        return view('news.index', ['news' => $news, 'category' => $bestCategories]);
 
-        return view('news.index', ['news' => $news, 'category' => $category]);
     }
 
     public function show(int $idNews)

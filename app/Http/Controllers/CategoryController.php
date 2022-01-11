@@ -9,7 +9,6 @@ class CategoryController extends Controller
     public function index()
     {
         $category = $this->getCategory();
-
         return view('news.category', ['category' => $category]);
     }
 
@@ -17,7 +16,6 @@ class CategoryController extends Controller
     {
         $news = $this->getNews();
         $category = $this->getCategory();
-
         return view('news.categoryNews', ['news' => $news, 'category' => $category]);
     }
 }

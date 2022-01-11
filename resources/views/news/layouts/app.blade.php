@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+<script src="{{asset('test/index.js')}}"></script>
     <style>
         .vr-gallery hr {
             width: 90%;
@@ -60,17 +60,26 @@
                 </button>
                 <div id="my-nav" class="collapse navbar-collapse">
                     <ul class="navbar-nav mx-auto">
-                        @foreach ($category as $item)
-                            <li class="nav-item">
-                                <a class="nav-link" href="/categories/{{ $item['id'] }}">{{ $item['category'] }}</a>
-                            </li>
-                        @endforeach
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/news">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/categories">Категории новостей</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tags">Теги</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/auth">Авторизация</a>
+                        </li>
+
                         <li class="nav-item">
                             <form action="" method="POST">
                                 <div class="input-group mt-0 mx-auto" style="width:16px;">
 
                                     <div class="">
-                                        <img src="/assets/images/search-icon.png" id="toggle-search"
+                                        <img src="{{asset('/assets/images/search-icon.png')}}" id="toggle-search"
                                              class="ml-2 toggle-search" alt="search icon">
                                     </div>
                                 </div>
@@ -125,12 +134,11 @@
     </div>
 </footer>
 
-
-<script src="/assets/js/popper.min.js"></script>
-<script src="/assets/js/jquery-1.12.0.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/owl.carousel.min.js"></script>
-<script src="/assets/js/jquery.yu2fvl.js"></script>
+<script src="{{asset('/assets/js/popper.min.js')}}"></script>
+<script src="{{asset('/assets/js/jquery-1.12.0.min.js')}}"></script>
+<script src="{{asset('/assets/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('/assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('/assets/js/jquery.yu2fvl.js')}}"></script>
 @stack('scripts')
 
 </body>

@@ -32,7 +32,7 @@
             <div class="row vr-gallery">
 
 
-                    <ul class="nav-fill mx-auto mb-5">
+                    <ul class="nav-fill mx-auto mb-5 right-list">
                         @forelse ($category as $item)
                         <li class="nav-item">
                             <a class="nav-link" href="/categories/{{ $item['id'] }}"><p>{{ $item['category'] }}</p></a>
