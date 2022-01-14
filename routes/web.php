@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryAdminController;
+use App\Http\Controllers\Admin\NewsAdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
@@ -15,17 +17,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('info');
 });
 
-Route::get('/news', [NewsController::class, 'index']);
-Route::get('/news/{id}', [NewsController::class, 'show']);
+// Admin Rout
+Route::group(['prefix'=>'admin', 'as'=>'admin'], function(){
+    Route::view('/','admin.index');
+    Route::resource('/news', NewsAdminController::class);
+    Route::resource('/categories', CategoryAdminController::class);
+});
 
 
-Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/categories/{id}', [CategoryController::class, 'show']);
+// Client Rout
+Route::get('/news', [NewsController::class, 'index'])
+    ->name('news.index');
+Route::get('/news/{id}', [NewsController::class, 'show'])
+    ->where('id', '\d+')
+    ->name('index.show');
 
-
-
-
+Route::get('/categories', [CategoryController::class, 'index'])
+    ->name('categories.index');
+Route::get('/categories/{id}', [CategoryController::class, 'show'])
+    ->where('id', '\d+')
+    ->name('categories.show');
