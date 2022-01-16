@@ -1,63 +1,48 @@
-@extends('news.layouts.app')
+@extends('admin.layouts.app')
 
 @section('title')
-    @parent Все новости
-@endsection
-
-@section('topic')
-    @parent
-    <div class="row ml-0 mr-0">
-        @forelse ($category as $item)
-            <div class="col-md-3 pr-0 first">
-                <a href="/categories/{{ $item['id'] }}">
-                    <div class="card">
-                        <img width="440" height="293" class="card-img" src="/assets/images/categories/{{ $item['id'] }}.jpg" alt="">
-                        <div class="card-img-overlay">
-                            <h5>{{ $item['category'] }}</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        @empty
-            <p>Нет категорий</p>
-        @endforelse
-    </div>
+    @parent Панель администратора
 @endsection
 
 @section('content')
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row vr-gallery">
-            @forelse ($news as $item)
-                <hr>
-                <a href="/news/{{ $item['id'] }}">
-                    <div class="col-md-8 mb-4">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-7 pr-0 pd-md">
-                                <img src="/assets/images/" alt="img">
-                            </div>
-                            <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
-                                <p><small>{{ $item['date'] }}</small></p>
-                                <h3>{{ $item['title'] }}</h3>
-                                <p>
-                                    {{ $item['description'] }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            @empty
-                <p>Нет новостей</p>
-            @endforelse
-            @isset($news)
-               <a href="#" class="btn">Загрузить ещё</a>
-            @endisset
-            </div>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Статистика</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <span data-feather="calendar"></span>
+                Эта неделя
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Месяц</a></li>
+                <li><a class="dropdown-item" href="#">Эта неделя</a></li>
+                <li><a class="dropdown-item" href="#">Сегодня</a></li>
+            </ul>
         </div>
+    </div>
+    <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+    <h2>Таблица</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Раздел 1</th>
+                <th>Раздел 2</th>
+                <th>Раздел 3</th>
+                <th>Раздел 4</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1,001</td>
+                <td>random</td>
+                <td>data</td>
+                <td>placeholder</td>
+                <td>text</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 @endsection
 
-@push('scripts')
-    <script src="{{asset('/assets/js/main.js')}}"></script>
-@endpush
 

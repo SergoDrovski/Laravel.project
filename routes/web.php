@@ -23,8 +23,9 @@ Route::get('/', function () {
 });
 
 // Admin Rout
-Route::group(['prefix'=>'admin', 'as'=>'admin'], function(){
-    Route::view('/','admin.index');
+Route::group(['prefix'=>'admin', 'as'=>'admin.'], function(){
+    Route::view('/','admin.index')
+        ->name('index');
     Route::resource('/news', NewsAdminController::class);
     Route::resource('/categories', CategoryAdminController::class);
 });
