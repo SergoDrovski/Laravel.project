@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-sm btn-outline-secondary">
+<a type="button" href="{{ $href ?? '' }}" class="btn btn-sm btn-outline-secondary">
     <span data-feather="plus"></span>
     {{ $slot }}
-</button>
+</a>
