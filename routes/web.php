@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Добавлены все шаблоны согласно 3 заданию и роуты
 
 Route::get('/', function () {
     return view('info');
