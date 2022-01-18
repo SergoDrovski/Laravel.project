@@ -10,7 +10,8 @@
     </x-admin.head-content>
 
     <div class="bd-example">
-        <form class="row g-3">
+        <form class="row g-3" action="{{ route('admin.news.store') }}">
+            @csrf
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Наименование категории</label>
                 <input type="email" class="form-control" id="inputEmail4">

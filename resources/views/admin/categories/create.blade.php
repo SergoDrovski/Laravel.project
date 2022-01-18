@@ -10,7 +10,8 @@
     </x-admin.head-content>
 
     <div class="bd-example">
-        <form class="row g-3" method="post">
+        <form class="row g-3" method="post" action="{{ route('admin.categories.store') }}">
+            @csrf
             <div class="col-md-6">
                 <label for="inputTitle" class="form-label">Название категории</label>
                 <input type="text" class="form-control" id="inputTitle" name="title">
