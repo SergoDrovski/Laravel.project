@@ -14,7 +14,7 @@ class NewsAdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.news.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class NewsAdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.news.create');
     }
 
     /**
